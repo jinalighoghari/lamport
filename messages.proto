@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+// Make a package
+package lamportMessage;
+
+// Build service
+service message_service{
+    rpc message_exchange(send_message) returns (receive_message);}
+
+message send_message {
+    int32 id = 1;
+    string message = 2;
+    int32 processID = 3;
+    int32 clock = 4;
+}
+
+message receive_message {
+    int32 id = 1;
+    string message = 2;
+    int32 processID = 3;
+    int32 clock = 4;
+}
